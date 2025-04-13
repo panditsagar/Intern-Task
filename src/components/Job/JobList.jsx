@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedJobs = JSON.parse(localStorage.getItem("jobs")) || [];
     setJobs(storedJobs);
   }, []);
 
+  const handleEdit = (job, index) => {
+    localStorage.setItem("jobToEdit", JSON.stringify({ job, index }));
+    navigate("/jobedit");
+  };
 
   return (
     <div className="p-6 mt-6 bg-gray-50 min-h-screen">
@@ -47,7 +52,7 @@ const JobList = () => {
                 <strong>Education:</strong> {job.education}
               </p>
               <p className="text-sm text-gray-700 mb-1">
-                <strong>Skills:</strong> {job.skills} Years
+                <strong>Skills:</strong> {job.skills}
               </p>
               <p className="text-sm text-gray-700 mb-1">
                 <strong>Experience:</strong> {job.experience} Years
@@ -56,8 +61,12 @@ const JobList = () => {
                 {job.description}
               </p>
 
-              {/* Edit Button */}
-              <button className="mt-4 text-sm px-4 py-1 bg-yellow-400 text-white rounded hover:bg-yellow-500">Edit Job</button>
+              <button
+                onClick={() => handleEdit(job, i)}
+                className="mt-4 text-sm px-4 py-1 bg-yellow-400 text-white rounded hover:bg-yellow-500"
+              >
+                Edit Job
+              </button>
             </div>
           ))}
         </div>
