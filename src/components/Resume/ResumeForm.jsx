@@ -6,7 +6,8 @@ export const ResumeForm = () => {
     fullName: "",
     email: "",
     phone: "",
-    education: "",
+    degree: "",
+    institute: "",
     skills: "",
     resume: null,
   });
@@ -42,7 +43,8 @@ export const ResumeForm = () => {
       fullName: "",
       email: "",
       phone: "",
-      education: "",
+      degree: "",
+      institute: "",
       skills: "",
       resume: null,
     });
