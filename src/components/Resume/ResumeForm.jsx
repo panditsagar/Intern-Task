@@ -142,7 +142,7 @@ import { useNavigate } from 'react-router-dom';
           <div className="w-full space-y-2">
             <input
               name="degree"
-              placeholder="Degree Eg. MCA, Btech"
+              placeholder="Degree (Eg. MCA, Btech)"
               value={candidateForm.degree}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
