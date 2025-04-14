@@ -4,11 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import JobList from "./components/Job/JobList";
 import JobEdit from "./components/Job/JobEdit";
 import JobForm from "./components/Job/JobForm";
-<<<<<<< HEAD
-import ResumeForm from "./components/Resume/ResumeForm";
-=======
-import { ResumeForm } from "./components/Resume/ResumeForm.jsx";
->>>>>>> c2fd5395313edd9764e31ee280ef65f6c2ef48c4
+import ResumeForm from "./components/Resume/ResumeForm.jsx";
  // If you made a separate navbar
 
 const App = () => {
