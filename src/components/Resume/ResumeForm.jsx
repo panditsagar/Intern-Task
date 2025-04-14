@@ -38,8 +38,6 @@ export const ResumeForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // form submission logic here 
-
     setCandidateForm({
       fullName: "",
       email: "",
