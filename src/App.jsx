@@ -15,6 +15,10 @@ const App = () => {
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <h1 className="text-xl font-bold">Job Requirement Module</h1>
           <ul className="flex space-x-6">
+            <Link to={"/resumeForm"}>
+              {" "}
+              <li className="hover:underline cursor-pointer">Resume Form</li>
+            </Link>
             <Link to={"/jobpost"}>
               {" "}
               <li className="hover:underline cursor-pointer">Post Job</li>
