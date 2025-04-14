@@ -101,7 +101,7 @@ export const ResumeForm = () => {
           </div>
         )}
         
-        <p>Name:</p><input
+        <input
           name="fullName"
           placeholder="Full Name"
           value={candidateForm.fullName}
