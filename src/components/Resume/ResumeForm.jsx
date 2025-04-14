@@ -145,7 +145,7 @@ export const ResumeForm = () => {
           <div className="w-full space-y-2">
             <input
               name="degree"
-              placeholder="Degree Eg. MCA, Btech"
+              placeholder="Degree (Eg. MCA, Btech)"
               value={candidateForm.degree}
               onChange={handleChange}
               disabled={isDisabled}
