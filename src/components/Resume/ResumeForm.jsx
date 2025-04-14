@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const ResumeForm = () => {
+ const ResumeForm = () => {
   const [candidateForm, setCandidateForm] = useState({
     fullName: "",
     email: "",
@@ -111,7 +111,6 @@ export const ResumeForm = () => {
             placeholder="Full Name"
             value={candidateForm.fullName}
             onChange={handleChange}
-            disabled={isDisabled}
             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
@@ -123,7 +122,6 @@ export const ResumeForm = () => {
             placeholder="Email Address"
             value={candidateForm.email}
             onChange={handleChange}
-            disabled={isDisabled}
             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
@@ -135,7 +133,6 @@ export const ResumeForm = () => {
             placeholder="Number"
             value={candidateForm.phone}
             onChange={handleChange}
-            disabled={isDisabled}
             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
@@ -148,7 +145,6 @@ export const ResumeForm = () => {
               placeholder="Degree Eg. MCA, Btech"
               value={candidateForm.degree}
               onChange={handleChange}
-              disabled={isDisabled}
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
@@ -156,7 +152,6 @@ export const ResumeForm = () => {
               placeholder="Institute Name"
               value={candidateForm.institute}
               onChange={handleChange}
-              disabled={isDisabled}
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -169,7 +164,6 @@ export const ResumeForm = () => {
             placeholder="Eg. React, Node, Python, HTML"
             value={candidateForm.skills}
             onChange={handleChange}
-            disabled={isDisabled}
             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
@@ -184,3 +178,5 @@ export const ResumeForm = () => {
     </div>
   );
 };
+
+export default ResumeForm;
