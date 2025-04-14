@@ -19,7 +19,7 @@ function JobEdit() {
   useEffect(() => {
     const jobData = JSON.parse(localStorage.getItem("jobToEdit"));
     if (jobData) {
-      setForm(jobData.job);
+      setForm(jobData.job); // Prefill Job data 
       setJobIndex(jobData.index);
     }
   }, []);
