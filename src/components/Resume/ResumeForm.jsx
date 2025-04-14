@@ -73,10 +73,7 @@ export const ResumeForm = () => {
         </button>
       </div>
 
-      <form
-        onSubmit={handleSubmit}
-        className="p-6 bg-white shadow-md rounded-md max-w-xl mx-auto space-y-4"
-      >
+      <form onSubmit={handleSubmit} className="p-6 bg-white shadow-md rounded-md max-w-xl mx-auto space-y-4">
         {entryMode === "resume" && (
           <div className="flex flex-col justify-center items-center p-4 border border-blue-700 rounded-md bg-gray-100 mx-auto">
             {!resumeUploaded ? (
@@ -103,8 +100,8 @@ export const ResumeForm = () => {
             )}
           </div>
         )}
-
-        <input
+        
+        <p>Name:</p><input
           name="fullName"
           placeholder="Full Name"
           value={candidateForm.fullName}
