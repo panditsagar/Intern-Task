@@ -18,11 +18,11 @@ Upload PDF resume → extract text(using regex) →
 Prefill form for review.
 
 ## Notes
-- Built collaboratively by 3 frontend developers.
+- Built collaboratively by 3 developers(Sagar,Ravi,Manish).
 
 ## Tech Stack
-React | HTML/CSS | pdfjs-dist (for PDF parsing)
+React | HTML/CSS | PDF parsing (pdfjs-dist)
 
 ## Setup
-npm install
-npm start
+1. npm install
+2. npm start
