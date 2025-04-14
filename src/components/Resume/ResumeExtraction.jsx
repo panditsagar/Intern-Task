@@ -12,7 +12,7 @@ const ResumeUpload = () => {
       const typedArray = new Uint8Array(this.result);
       const pdf = await pdfjsLib.getDocument(typedArray).promise;
       let fullText = '';
- 
+
       for (let i = 1; i <= pdf.numPages; i++) {
         const page = await pdf.getPage(i);
         const text = await page.getTextContent();
