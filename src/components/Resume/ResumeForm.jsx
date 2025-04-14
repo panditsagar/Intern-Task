@@ -100,47 +100,77 @@ export const ResumeForm = () => {
             )}
           </div>
         )}
+
         
-        <input
-          name="fullName"
-          placeholder="Full Name"
-          value={candidateForm.fullName}
-          onChange={handleChange}
-          disabled={isDisabled}
-          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <input
-          name="email"
-          placeholder="Email Address"
-          value={candidateForm.email}
-          onChange={handleChange}
-          disabled={isDisabled}
-          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <input
-          name="phone"
-          placeholder="Phone Number"
-          value={candidateForm.phone}
-          onChange={handleChange}
-          disabled={isDisabled}
-          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <input
-          name="education"
-          placeholder="Education"
-          value={candidateForm.education}
-          onChange={handleChange}
-          disabled={isDisabled}
-          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <input
-          name="skills"
-          placeholder="Skills"
-          value={candidateForm.skills}
-          onChange={handleChange}
-          disabled={isDisabled}
-          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+        <div className="flex items-center">
+          <label className="w-32 text-left">Name</label>
+          <input
+            name="fullName"
+            placeholder="Full Name"
+            value={candidateForm.fullName}
+            onChange={handleChange}
+            disabled={isDisabled}
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div className="flex items-center">
+          <label className="w-32 text-left">Email</label>
+          <input
+            name="email"
+            placeholder="Email Address"
+            value={candidateForm.email}
+            onChange={handleChange}
+            disabled={isDisabled}
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div className="flex items-center">
+          <label className="w-32 text-left">Phone</label>
+          <input
+            name="phone"
+            placeholder="Number"
+            value={candidateForm.phone}
+            onChange={handleChange}
+            disabled={isDisabled}
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div className="flex items-start">
+          <label className="w-32 pt-2 text-left">Education</label>
+          <div className="w-full space-y-2">
+            <input
+              name="degree"
+              placeholder="Degree Eg. MCA, Btech"
+              value={candidateForm.degree}
+              onChange={handleChange}
+              disabled={isDisabled}
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <input
+              name="institute"
+              placeholder="Institute Name"
+              value={candidateForm.institute}
+              onChange={handleChange}
+              disabled={isDisabled}
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
+
+        <div className="flex items-center">
+          <label className="w-32 text-left">Skills</label>
+          <input
+            name="skills"
+            placeholder="Eg. React, Node, Python, HTML"
+            value={candidateForm.skills}
+            onChange={handleChange}
+            disabled={isDisabled}
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
 
         <button
           type="submit"
