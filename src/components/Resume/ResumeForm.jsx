@@ -1,82 +1,138 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import * as pdfjsLib from 'pdfjs-dist';
+import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min?worker';
 
- const ResumeForm = () => {
+// Configure PDF.js worker
+pdfjsLib.GlobalWorkerOptions.workerPort = new pdfjsWorker();
+
+const ResumeForm = () => {
   const [candidateForm, setCandidateForm] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    degree: "",
-    institute: "",
-    skills: "",
+    fullName: '',
+    email: '',
+    phone: '',
+    degree: '',
+    institute: '',
+    skills: '',
     resume: null,
   });
-  const [entryMode, setEntryMode] = useState("manual");
+
+  const [entryMode, setEntryMode] = useState('manual');
   const [resumeUploaded, setResumeUploaded] = useState(false);
+  const [fileError, setFileError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setCandidateForm({
-      ...candidateForm,
+    setCandidateForm((prev) => ({
+      ...prev,
       [name]: value,
-    });
+    }));
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const file = e.target.files[0];
-    if (file && file.type === "application/pdf") {
-      setCandidateForm({ ...candidateForm, resume: file });
-      setResumeUploaded(true);
+
+    if (!file || file.type !== 'application/pdf') {
+      setFileError('Please upload a valid PDF file');
+      return;
     }
+
+    setFileError('');
+    setResumeUploaded(true);
+    setCandidateForm((prev) => ({ ...prev, resume: file }));
+    setLoading(true);
+
+    const reader = new FileReader();
+    reader.readAsArrayBuffer(file);
+
+    reader.onload = async (e) => {
+      const typedArray = new Uint8Array(e.target.result);
+      try {
+        const pdf = await pdfjsLib.getDocument({ data: typedArray }).promise;
+
+        let extractedText = '';
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const content = await page.getTextContent();
+          const pageText = content.items.map((item) => item.str).join(' ');
+          extractedText += ' ' + pageText;
+        }
+
+        // Extract fields from text
+        const nameMatch = extractedText.match(/Name[:\-]?\s*([A-Za-z ]{2,})/i);
+        const emailMatch = extractedText.match(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}\b/i);
+        const phoneMatch = extractedText.match(/(?:\+91[-\s]?)?\d{10}/);
+        const degreeMatch = extractedText.match(/(B\.?Tech|M\.?Tech|MCA|B\.?Sc|MBA|B\.?E|Bachelor|Master)[^,;\n]*/i);
+        const instituteMatch = extractedText.match(/(University|College|Institute)\s+of\s+[A-Za-z ]+/i);
+
+        const skillsList = ['React', 'Node', 'Python', 'JavaScript', 'CSS', 'HTML'];
+        const foundSkills = skillsList.filter((skill) => new RegExp(skill, 'i').test(extractedText)).join(', ');
+
+        setCandidateForm((prev) => ({
+          ...prev,
+          fullName: nameMatch?.[1]?.trim() || '',
+          email: emailMatch?.[0] || '',
+          phone: phoneMatch?.[0] || '',
+          degree: degreeMatch?.[0]?.trim() || '',
+          institute: instituteMatch?.[0]?.trim() || '',
+          skills: foundSkills || '',
+        }));
+      } catch (err) {
+        console.error('Error extracting text:', err);
+        setFileError('Failed to extract text from PDF');
+      }
+      setLoading(false);
+    };
   };
 
   const handleChangeResume = () => {
-    setCandidateForm({ ...candidateForm, resume: null });
+    setCandidateForm((prev) => ({ ...prev, resume: null }));
     setResumeUploaded(false);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('Submitted:', candidateForm);
+    alert('Application Submitted!');
     setCandidateForm({
-      fullName: "",
-      email: "",
-      phone: "",
-      degree: "",
-      institute: "",
-      skills: "",
+      fullName: '',
+      email: '',
+      phone: '',
+      degree: '',
+      institute: '',
+      skills: '',
       resume: null,
     });
     setResumeUploaded(false);
   };
 
-  const isDisabled = entryMode === "resume";
+  const isDisabled = entryMode === 'resume';
 
   return (
     <div className="job-application-form font-bold text-gray-800 mb-6 text-center">
       <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Application Form</h2>
       <div className="flex justify-center m-8 space-x-4 text-sm">
         <button
-          onClick={() => setEntryMode("manual")}
-          className={`p-2 m-1 rounded-md border ${
-            entryMode === "manual" ? "bg-blue-600 text-white" : "bg-gray-200"
-          }`}
+          type="button"
+          onClick={() => setEntryMode('manual')}
+          className={`p-2 m-1 rounded-md border ${entryMode === 'manual' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
         >
           Manual Entry
         </button>
         <button
-          onClick={() => setEntryMode("resume")}
-          className={`p-2 m-1 rounded-md border ${
-            entryMode === "resume" ? "bg-blue-600 text-white" : "bg-gray-200"
-          }`}
+          type="button"
+          onClick={() => setEntryMode('resume')}
+          className={`p-2 m-1 rounded-md border ${entryMode === 'resume' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
         >
           Upload Resume
         </button>
       </div>
 
       <form onSubmit={handleSubmit} className="p-6 bg-white shadow-md rounded-md max-w-xl mx-auto space-y-4">
-        {entryMode === "resume" && (
+        {entryMode === 'resume' && (
           <div className="flex flex-col justify-center items-center p-4 border border-blue-700 rounded-md bg-gray-100 mx-auto">
             {!resumeUploaded ? (
               <input
@@ -100,10 +156,11 @@ import { useNavigate } from 'react-router-dom';
                 </button>
               </>
             )}
+            {fileError && <p className="text-red-500 mt-2">{fileError}</p>}
+            {loading && <p className="text-gray-700 mt-2">⏳ Extracting data...</p>}
           </div>
         )}
 
-        
         <div className="flex items-center">
           <label className="w-32 text-left">Name</label>
           <input
@@ -142,7 +199,7 @@ import { useNavigate } from 'react-router-dom';
           <div className="w-full space-y-2">
             <input
               name="degree"
-              placeholder="Degree (Eg. MCA, Btech)"
+              placeholder="Degree (Eg. MCA, BTech)"
               value={candidateForm.degree}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
