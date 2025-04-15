@@ -38,10 +38,9 @@ const ResumeFormTest = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can process or send the data here
     console.log(candidateForm);
 
-    // Reset form after submission
+    
     setCandidateForm({
       fullName: "",
       email: "",
@@ -59,7 +58,7 @@ const ResumeFormTest = () => {
       <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Application Form</h2>
 
       <form onSubmit={handleSubmit} className="p-6 bg-white shadow-md rounded-md max-w-xl mx-auto space-y-4">
-        {/* Resume Upload */}
+        {}
         <div className="flex flex-col justify-center items-center p-4 border border-blue-700 rounded-md bg-gray-100 mx-auto">
           {!resumeUploaded ? (
             <input
