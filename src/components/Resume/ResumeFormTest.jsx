@@ -84,7 +84,7 @@ const ResumeFormTest = () => {
           )}
         </div>
 
-        {/* Manual Entry Fields */}
+        {}
         <div className="flex items-center">
           <label className="w-32 text-left">Name</label>
           <input
