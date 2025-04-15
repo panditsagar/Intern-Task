@@ -88,7 +88,7 @@ import { useNavigate } from 'react-router-dom';
               />
             ) : (
               <>
-                <p className="text-green-700 font-medium">
+                <p className="text-green-900 font-medium">
                   File Uploaded: {candidateForm.resume?.name}
                 </p>
                 <button
