@@ -22,8 +22,23 @@ const ResumeForm = () => {
   const [fileError, setFileError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate();
+ 
 
+  const extractName = (text) => {
+    const fallbackPattern = /([A-Z]{2,})(\s[A-Z]{2,})+/;
+    const match = text.match(fallbackPattern);
+  
+    if (match) {
+      const name = match[0];
+      if (!/resume|curriculum vitae|cv/i.test(name)) {
+        return name;
+      }
+    }
+  
+    return '';
+  };
+  
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCandidateForm((prev) => ({
@@ -62,7 +77,7 @@ const ResumeForm = () => {
         }
 
         // Extract fields from text
-        const nameMatch = extractedText.match(/Name[:\-]?\s*([A-Za-z ]{2,})/i);
+        const nameFromTop = extractName(extractedText);
         const emailMatch = extractedText.match(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}\b/i);
         const phoneMatch = extractedText.match(/(?:\+91[-\s]?)?\d{10}/);
         const degreeMatch = extractedText.match(/(B\.?Tech|M\.?Tech|MCA|B\.?Sc|MBA|B\.?E|Bachelor|Master)[^,;\n]*/i);
@@ -73,7 +88,7 @@ const ResumeForm = () => {
 
         setCandidateForm((prev) => ({
           ...prev,
-          fullName: nameMatch?.[1]?.trim() || '',
+          fullName: nameFromTop || '',
           email: emailMatch?.[0] || '',
           phone: phoneMatch?.[0] || '',
           degree: degreeMatch?.[0]?.trim() || '',
