@@ -5,7 +5,7 @@ import JobList from "./components/Job/JobList";
 import JobEdit from "./components/Job/JobEdit";
 import JobForm from "./components/Job/JobForm";
 import ResumeForm from "./components/Resume/ResumeForm.jsx";
-import ResumeUpload from "./components/Resume/ResumeUpload.jsx";
+import ResumeFormTest from "./components/Resume/ResumeFormTest.jsx";
  // If you made a separate navbar
 
 const App = () => {
@@ -35,7 +35,7 @@ const App = () => {
         <Route path="/jobPost" element={<JobForm />} />
         <Route path="/jobedit" element={<JobEdit />} />
         <Route path="/resumeForm" element={<ResumeForm />} />
-        <Route path="/resumeUpload" element={<ResumeUpload />} />
+        <Route path="/resumeFormTest" element={<ResumeFormTest />} />
       </Routes>
     </Router>
   );

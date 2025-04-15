@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const ResumeUpload = () => {
+const ResumeFormTest = () => {
   const [candidateForm, setCandidateForm] = useState({
     fullName: "",
     email: "",
@@ -161,4 +161,4 @@ const ResumeUpload = () => {
   );
 };
 
-export default ResumeUpload;
+export default ResumeFormTest;
