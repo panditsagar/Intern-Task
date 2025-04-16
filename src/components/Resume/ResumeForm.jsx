@@ -247,9 +247,8 @@ const ResumeForm = () => {
 
       {/* Right Side - Resume Preview */}
       <div className="md:w-1/2 w-full bg-white rounded-lg shadow-lg p-4">
-
         {resumeURL ? (
-          <div className="h-[600px] border rounded-md overflow-hidden shadow-md">
+          <div className="h-[750px] border rounded-md overflow-hidden shadow-md">
             <iframe
               src={`${resumeURL}#zoom=75`}
               type="application/pdf"
