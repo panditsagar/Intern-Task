@@ -36,7 +36,6 @@ const App = () => {
         <Route path="/jobPost" element={<JobForm />} />
         <Route path="/jobedit" element={<JobEdit />} />
         <Route path="/resumeForm" element={<ResumeForm />} />
- 
       </Routes>
     </Router>
   );
