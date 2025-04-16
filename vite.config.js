@@ -6,6 +6,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   optimizeDeps: {
-    include: ['pdfjs-dist/build/pdf.worker.min.js'],
+    include: ['pdfjs-dist/build/pdf.worker.min.js'], // pdfjs insertion to the vite because not allows by default
   },
 });
