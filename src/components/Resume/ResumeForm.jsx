@@ -136,14 +136,14 @@ const ResumeForm = () => {
           <button
             type="button"
             onClick={() => setEntryMode('manual')}
-            className={`px-4 py-2 rounded-md border ${entryMode === 'manual' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+            className={`px-4 py-2 rounded-md border  hover:bg-blue-400 transition duration-300 cursor-pointer ${entryMode === 'manual' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
           >
             Manual Entry
           </button>
           <button
             type="button"
             onClick={() => setEntryMode('resume')}
-            className={`px-4 py-2 rounded-md border ${entryMode === 'resume' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+            className={`px-4 py-2 rounded-md border  hover:bg-blue-400 transition duration-300 cursor-pointer ${entryMode === 'resume' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
           >
             Upload Resume
           </button>
@@ -159,7 +159,7 @@ const ResumeForm = () => {
                   type="file"
                   accept="application/pdf"
                   onChange={handleFileChange}
-                  className="w-full p-2 text-gray-700"
+                  className="w-full p-2 text-gray-700 hover:cursor-pointer"
                 />
               ) : (
                 <>
@@ -169,9 +169,9 @@ const ResumeForm = () => {
                   <button
                     type="button"
                     onClick={handleChangeResume}
-                    className="mt-3 text-sm text-blue-600 underline"
+                    className="mt-3 text-sm text-blue-600 underline hover:cursor-pointer"
                   >
-                    Change Resume
+                    Change Resume 
                   </button>
                 </>
               )}
@@ -238,7 +238,7 @@ const ResumeForm = () => {
 
           <button
             type="submit"
-            className="bg-blue-600 text-white px-4 py-3 rounded-md hover:bg-blue-700 transition duration-300 w-full"
+            className="bg-blue-600 text-white px-4 py-3 rounded-md hover:bg-blue-700 transition duration-300 w-full cursor-pointer"
           >
             Submit
           </button>
