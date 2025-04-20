@@ -31,7 +31,7 @@ const JobList = () => {
               className="bg-white border border-gray-200 rounded-lg shadow-md p-5 hover:shadow-lg transition duration-300"
             >
               <div className="flex justify-between items-center mb-2">
-                <h3 className="text-xl font-semibold text-blue-700">
+                <h3 className="text-xl font-semibold text-green-700">
                   {job.title}
                 </h3>
                 <span

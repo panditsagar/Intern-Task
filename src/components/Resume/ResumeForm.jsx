@@ -136,14 +136,14 @@ const ResumeForm = () => {
           <button
             type="button"
             onClick={() => setEntryMode('manual')}
-            className={`px-4 py-2 rounded-md border  hover:bg-blue-400 transition duration-300 cursor-pointer ${entryMode === 'manual' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+            className={`px-4 py-2 rounded-md border  hover:bg-green-400 transition duration-300 cursor-pointer ${entryMode === 'manual' ? 'bg-green-600 text-white' : 'bg-gray-200'}`}
           >
             Manual Entry
           </button>
           <button
             type="button"
             onClick={() => setEntryMode('resume')}
-            className={`px-4 py-2 rounded-md border  hover:bg-blue-400 transition duration-300 cursor-pointer ${entryMode === 'resume' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+            className={`px-4 py-2 rounded-md border  hover:bg-green-400 transition duration-300 cursor-pointer ${entryMode === 'resume' ? 'bg-green-600 text-white' : 'bg-gray-200'}`}
           >
             Upload Resume
           </button>
@@ -152,7 +152,7 @@ const ResumeForm = () => {
         {/* Form Starts */}
         <form onSubmit={handleSubmit} className="space-y-4">
           {entryMode === 'resume' && (
-            <div className="flex flex-col justify-center items-center p-4 border border-blue-700 rounded-md bg-gray-100">
+            <div className="flex flex-col justify-center items-center p-4 border border-greenbg-green-700 rounded-md bg-gray-100">
               {!resumeUploaded ? (
                 <input
                   name="resume"
@@ -169,7 +169,7 @@ const ResumeForm = () => {
                   <button
                     type="button"
                     onClick={handleChangeResume}
-                    className="mt-3 text-sm text-blue-600 underline hover:cursor-pointer"
+                    className="mt-3 text-sm text-greenbg-green-600 underline hover:cursor-pointer"
                   >
                     Change Resume 
                   </button>
@@ -188,7 +188,7 @@ const ResumeForm = () => {
               placeholder="Full Name"
               value={candidateForm.fullName}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greenbg-green-500"
             />
           </div>
 
@@ -199,7 +199,7 @@ const ResumeForm = () => {
               placeholder="Email Address"
               value={candidateForm.email}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greenbg-green-500"
             />
           </div>
 
@@ -210,7 +210,7 @@ const ResumeForm = () => {
               placeholder="Number"
               value={candidateForm.phone}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greenbg-green-500"
             />
           </div>
 
@@ -221,7 +221,7 @@ const ResumeForm = () => {
               placeholder="Degree (Eg. MCA, BTech)"
               value={candidateForm.degree}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greenbg-green-500"
             />
           </div>
 
@@ -232,13 +232,13 @@ const ResumeForm = () => {
               placeholder="Eg. React, Node, Python, HTML"
               value={candidateForm.skills}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-greenbg-green-500"
             />
           </div>
 
           <button
             type="submit"
-            className="bg-blue-600 text-white px-4 py-3 rounded-md hover:bg-blue-700 transition duration-300 w-full cursor-pointer"
+            className="bg-green-600 text-white px-4 py-3 rounded-md hover:bg-green-700 transition duration-300 w-full cursor-pointer"
           >
             Submit
           </button>
