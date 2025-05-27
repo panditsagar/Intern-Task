@@ -6,10 +6,11 @@ import JobEdit from "./components/Job/JobEdit";
 import JobForm from "./components/Job/JobForm";
 import ResumeForm from "./components/Resume/ResumeForm.jsx";
 import { Hiring } from "./components/Job/Hiring.jsx";
- 
+import Docx from "./components/Docx/Docx.jsx";
 
 
- 
+
+
 const App = () => {
   return (
     <Router>
@@ -29,6 +30,10 @@ const App = () => {
               {" "}
               <li className="hover:underline cursor-pointer">View Jobs</li>
             </Link>
+            <Link to={"/docx"}>
+              {" "}
+              <li className="hover:underline cursor-pointer">Docx</li>
+            </Link>
           </ul>
         </div>
       </nav>
@@ -38,6 +43,7 @@ const App = () => {
         <Route path="/jobedit" element={<JobEdit />} />
         <Route path="/resumeForm" element={<ResumeForm />} />
         <Route path="/hiring" element={<Hiring />} />
+        <Route path="/docx" element={<Docx />} />
       </Routes>
     </Router>
   );
