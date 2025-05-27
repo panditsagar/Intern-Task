@@ -6,6 +6,7 @@ import JobEdit from "./components/Job/JobEdit";
 import JobForm from "./components/Job/JobForm";
 import ResumeForm from "./components/Resume/ResumeForm.jsx";
 import { Hiring } from "./components/Job/Hiring.jsx";
+import OfferLetterGenerator from "./components/offer Latter/OfferLetterGenerator.jsx";
  
 
 
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/jobedit" element={<JobEdit />} />
         <Route path="/resumeForm" element={<ResumeForm />} />
         <Route path="/hiring" element={<Hiring />} />
+        <Route path="/offer-later" element={<OfferLetterGenerator />} />
       </Routes>
     </Router>
   );
