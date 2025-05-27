@@ -6,11 +6,16 @@ import JobEdit from "./components/Job/JobEdit";
 import JobForm from "./components/Job/JobForm";
 import ResumeForm from "./components/Resume/ResumeForm.jsx";
 import { Hiring } from "./components/Job/Hiring.jsx";
+<<<<<<< HEAD
 import OfferLetterGenerator from "./components/offer Latter/OfferLetterGenerator.jsx";
  
+=======
+import Docx from "./components/Docx/Docx.jsx";
 
 
- 
+>>>>>>> 1ba308f73a84de6913b11dbe2618e7089806d8ea
+
+
 const App = () => {
   return (
     <Router>
@@ -30,6 +35,10 @@ const App = () => {
               {" "}
               <li className="hover:underline cursor-pointer">View Jobs</li>
             </Link>
+            <Link to={"/docx"}>
+              {" "}
+              <li className="hover:underline cursor-pointer">Docx</li>
+            </Link>
           </ul>
         </div>
       </nav>
@@ -40,6 +49,7 @@ const App = () => {
         <Route path="/resumeForm" element={<ResumeForm />} />
         <Route path="/hiring" element={<Hiring />} />
         <Route path="/offer-later" element={<OfferLetterGenerator />} />
+        <Route path="/docx" element={<Docx />} />
       </Routes>
     </Router>
   );
